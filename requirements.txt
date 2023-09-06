@@ -7,4 +7,4 @@ PyPDF2
 pyperclip 
 python-dotenv
 tiktoken
-htmlTemplates
+htmlTemplate

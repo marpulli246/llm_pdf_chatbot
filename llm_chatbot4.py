@@ -113,21 +113,21 @@ def handle_user_input(question):
             
 # Streamlit Frontend
 def main():
+    load_dotenv()
     st.title("LLM Chatbot - Explore your PDF document data")
     st.write(css, unsafe_allow_html=True)
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
-
     if "chat_history" not in st.session_state:
-        st.session_state.chat_history = None
-        
+        st.session_state.chat_history = None    
+    
     question = st.text_input("Ask anything to your PDF: ")
     if question:
         handle_user_input(question)
         
     # Upload PDF
     #pdf_file = st.file_uploader("Upload a PDF file", type=['pdf'])
-    pdf_file = st.sidebar.file_uploader("Upload your PDF file", type=['pdf'])
+    pdf_file = st.sidebar.file_uploader("Upload your PDF file.", type=['pdf'])
     if pdf_file:
         context = read_pdf(pdf_file)
         st.write("PDF successfully uploaded and read.")

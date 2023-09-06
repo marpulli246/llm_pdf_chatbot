@@ -89,8 +89,10 @@ def get_conversation_chain(vector_store):
     memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
     conversation_chain = RetrievalQA.from_chain_type(
         llm = llm,
+        chain_type = "stuff",
         retriever = vector_store.as_retriever(search_type="similarity") 
-        memory = memory
+        #memory = memory
+        return_source_documents = True
     )
     return conversation_chain                
 

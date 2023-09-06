@@ -1,4 +1,4 @@
-import streamlit as st
+arimport streamlit as st
 import requests
 import json
 import PyPDF2
@@ -75,7 +75,7 @@ def main():
     pdf_file = st.sidebar.file_uploader("Upload your PDF file.", type=['pdf'])
     if pdf_file:
         context = read_pdf(pdf_file)
-        st.write("PDF successfully uploaded and read.")
+        st.sidebar.write("PDF successfully uploaded and read.")
         text_chunks = get_chunk_text(context)
         vector_store = get_vector_store(text_chunks)
         st.session_state.conversation =  get_conversation_chain(vector_store)

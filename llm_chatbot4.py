@@ -90,7 +90,7 @@ def get_conversation_chain(vector_store):
     conversation_chain = RetrievalQA.from_chain_type(
         llm = llm,
         chain_type = "stuff",
-        retriever = vector_store.as_retriever(search_type="similarity") 
+        retriever = vector_store.as_retriever(search_type="similarity"), 
         #memory = memory
         return_source_documents = True
     )

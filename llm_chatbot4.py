@@ -95,8 +95,8 @@ def get_conversation_chain(vector_store):
         #return_source_documents = True
         chain_type_kwargs={
             "memory": ConversationBufferMemory(
-                memory_key="history",
-                input_key="question"),
+                memory_key="chat_history",
+                return_messages=True),
         }
     )
     return conversation_chain                

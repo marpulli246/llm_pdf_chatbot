@@ -12,7 +12,7 @@ from langchain.vectorstores import FAISS
 from langchain.chains.conversation.memory import ConversationBufferMemory
 from langchain.chains import RetrievalQA, ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
-from htmlTemplates import bot_template, user_template, css
+from htmlTemplate import bot_template, user_template, css
 
 # Your OpenAI API key
 #api_key = OPENAI_API_KEY

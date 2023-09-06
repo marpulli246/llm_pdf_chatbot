@@ -108,7 +108,8 @@ def handle_user_input(question):
             with st.chat_message("user", avatar="user.jpg"):
                 st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)            
         else:
-            st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)                
+            with st.chat_message("assistant", avatar="chatbot.png"):
+                st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)                
             
 # Streamlit Frontend
 def main():

@@ -106,6 +106,8 @@ def handle_user_input(question):
     for i, message in enumerate(st.session_state.chat_history):
         if i % 2 == 0:
             st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
+            user_avatar = st.image("user.jpg", width=50)
+            st.write(user_avatar)
         else:
             st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)                
             

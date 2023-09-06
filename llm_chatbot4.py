@@ -91,8 +91,13 @@ def get_conversation_chain(vector_store):
         llm = llm,
         chain_type = "stuff",
         retriever = vector_store.as_retriever(search_type="similarity"), 
-        #memory = memory
-        return_source_documents = True
+        memory = memory,
+        #return_source_documents = True
+        chain_type_kwargs={
+            "memory": ConversationBufferMemory(
+                memory_key="history",
+                input_key="question"),
+        }
     )
     return conversation_chain                
 

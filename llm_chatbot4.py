@@ -22,7 +22,7 @@ from langchain.chat_models import ChatOpenAI
 
 # Read PDF and return text
 def read_pdf(file):
-    pdf_file = PyPDF2.PdfFileReader(file)
+    pdf_file = PyPDF2.PdfReader(file)
     text = ""
     for i in range(len(pdf_file.pages)):
         text += pdf_file.pages[i].extract_text()

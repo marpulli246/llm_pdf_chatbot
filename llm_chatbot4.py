@@ -85,11 +85,7 @@ def display_conversation(messages):
                 st.write("Copied to clipboard!") 
                 
 def get_conversation_chain(vector_store):
-    
-    # OpenAI Model
     llm = ChatOpenAI()
-    # HuggingFace Model
-    # llm = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.5, "max_length":512})
     memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
     conversation_chain = ConversationalRetrievalChain.from_llm(
         llm = llm,
@@ -105,11 +101,9 @@ def handle_user_input(question):
 
     for i, message in enumerate(st.session_state.chat_history):
         if i % 2 == 0:
-            #with st.chat_message("user", avatar="user.jpg"):
-                st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)            
+           st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)            
         else:
-            #with st.chat_message("assistant", avatar="chatbot.png"):
-                st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)                
+           st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)                
             
 # Streamlit Frontend
 def main():

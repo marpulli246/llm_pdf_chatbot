@@ -95,7 +95,7 @@ def get_conversation_chain(vector_store):
         #return_source_documents = True
         chain_type_kwargs={
             "memory": ConversationBufferMemory(
-                memory_key="chat_history",
+                memory_key='chat_history',
                 return_messages=True),
         }
     )
@@ -127,6 +127,7 @@ def main():
         
     question = st.text_input("Ask anything to your PDF: ")
     if question:
+        print(question)
         handle_user_input(question)
         
     # Upload PDF

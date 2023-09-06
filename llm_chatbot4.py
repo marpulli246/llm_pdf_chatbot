@@ -99,14 +99,11 @@ def get_conversation_chain(vector_store):
         #        return_messages=True),
         #}
     )
-    print(conversation_chain)
     return conversation_chain                
 
 def handle_user_input(question):
-
     response = st.session_state.conversation({'question':question})
     st.session_state.chat_history = response['chat_history']
-
     for i, message in enumerate(st.session_state.chat_history):
         if i % 2 == 0:
            st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)            
@@ -115,10 +112,8 @@ def handle_user_input(question):
             
 # Streamlit Frontend
 def main():
-    st.title("LLM Chatbot - Explore your document data")
-  
+    st.title("LLM Chatbot - Explore your PDF document data")
     st.write(css, unsafe_allow_html=True)
-    
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
 
@@ -127,12 +122,11 @@ def main():
         
     question = st.text_input("Ask anything to your PDF: ")
     if question:
-        print(question)
         handle_user_input(question)
         
     # Upload PDF
     #pdf_file = st.file_uploader("Upload a PDF file", type=['pdf'])
-    pdf_file = st.sidebar.file_uploader("Upload a PDF file", type=['pdf'])
+    pdf_file = st.sidebar.file_uploader("Upload your PDF file", type=['pdf'])
     if pdf_file:
         context = read_pdf(pdf_file)
         st.write("PDF successfully uploaded and read.")

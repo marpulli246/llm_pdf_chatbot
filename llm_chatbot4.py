@@ -12,6 +12,7 @@ from langchain.vectorstores import FAISS
 from langchain.chains.conversation.memory import ConversationBufferMemory
 from langchain.chains import RetrievalQA, ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
+from htmlTemplates import bot_template, user_template, css
 
 # Your OpenAI API key
 #api_key = OPENAI_API_KEY
@@ -112,7 +113,7 @@ def handle_user_input(question):
 def main():
     st.title("LLM Chatbot - Explore your document data")
   
-    st.write(unsafe_allow_html=True)
+    st.write(css, unsafe_allow_html=True)
     
     if "conversation" not in st.session_state:
         st.session_state.conversation = None

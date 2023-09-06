@@ -36,9 +36,6 @@ bot_template = '''
 
 user_template = '''
 <div class="chat-message user">
-    <div class="avatar">
-        <img src="https://github.com/marpulli246/llm_pdf_chatbot/blob/1bcc8eb962356d755b4a9fa0beeaefc8604dacdd/user.jpg">
-    </div>    
     <div class="message">{{MSG}}</div>
 </div>
 '''

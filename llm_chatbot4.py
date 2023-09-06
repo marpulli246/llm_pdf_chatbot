@@ -135,7 +135,7 @@ def main():
     question = st.text_input("Ask anything to your PDF: ", key="text")
     if question:
         handle_user_input(question)
-    st.session_state["text"] = ""    
+    st.session_state.text = ""    
 
 if __name__ == "__main__":
     main()

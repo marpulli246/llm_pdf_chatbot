@@ -87,9 +87,9 @@ def display_conversation(messages):
 def get_conversation_chain(vector_store):
     llm = ChatOpenAI()
     memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
-    conversation_chain = ConversationalRetrievalChain.from_llm(
+    conversation_chain = RetrievalQA.from_chain_type(
         llm = llm,
-        retriever = vector_store.as_retriever(),
+        retriever = vector_store.as_retriever(search_type="similarity") 
         memory = memory
     )
     return conversation_chain                

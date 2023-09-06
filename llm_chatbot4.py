@@ -14,7 +14,7 @@ from langchain.chains import RetrievalQA, ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
 
 # Your OpenAI API key
-api_key = my-openai-secret
+api_key = OPENAI_API_KEY
 
 # Initialize OpenAI API
 #def initialize_openai():

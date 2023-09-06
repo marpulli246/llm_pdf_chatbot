@@ -86,12 +86,12 @@ def display_conversation(messages):
                 
 def get_conversation_chain(vector_store):
     llm = ChatOpenAI()
-    memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
+    #memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
     conversation_chain = RetrievalQA.from_chain_type(
         llm = llm,
         chain_type = "stuff",
         retriever = vector_store.as_retriever(search_type="similarity"), 
-        memory = memory,
+        #memory = memory,
         #return_source_documents = True
         chain_type_kwargs={
             "memory": ConversationBufferMemory(
@@ -99,6 +99,7 @@ def get_conversation_chain(vector_store):
                 return_messages=True),
         }
     )
+    print(conversation_chain)
     return conversation_chain                
 
 def handle_user_input(question):

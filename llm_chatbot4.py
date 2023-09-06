@@ -105,7 +105,7 @@ def handle_user_input(question):
 
     for i, message in enumerate(st.session_state.chat_history):
         if i % 2 == 0:
-            st.chat_message("user", avatar="user.jpg"):
+            with st.chat_message("user", avatar="user.jpg"):
                 st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)            
         else:
             st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)                

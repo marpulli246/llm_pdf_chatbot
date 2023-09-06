@@ -132,9 +132,10 @@ def main():
         vector_store = get_vector_store(text_chunks)
         st.session_state.conversation =  get_conversation_chain(vector_store)
 
-    question = st.text_input("Ask anything to your PDF: ")
+    question = st.text_input("Ask anything to your PDF: ", key="text")
     if question:
         handle_user_input(question)
+    st.session_state["text"] = ""    
 
 if __name__ == "__main__":
     main()

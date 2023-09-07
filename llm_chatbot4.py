@@ -57,7 +57,8 @@ def handle_user_input(question):
         # message from streamlit_chat
     #    message(st.session_state['past'][::-1][i], is_user=True, key=str(i) + '_user')
     #    message(st.session_state['generated'][::-1][i], key=str(i))
-    for i, message in enumerate(st.session_state.chat_history):
+    #for i, message in enumerate(st.session_state.chat_history):
+    for i, message in range(len(st.session_state.chat_history)-1, -1, -1):    
         if i % 2 == 0:
             st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
             #st.write(message.content, unsafe_allow_html=True)

@@ -25,7 +25,7 @@ css = '''
 }
 '''
 
-html_code = """
+html_code = '''
 <style>
   .fixed-text-input {
     position: fixed;
@@ -37,7 +37,7 @@ html_code = """
 <div class="fixed-text-input">
   <input type="text" placeholder="Enter text">
 </div>
-"""
+'''
 
 bot_template = '''
 <div class="chat-message bot">

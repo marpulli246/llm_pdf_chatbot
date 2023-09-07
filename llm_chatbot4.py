@@ -51,13 +51,11 @@ def get_conversation_chain(vector_store):
 def handle_user_input(question):
     response = st.session_state.conversation({'question':question})
     st.session_state.chat_history = response['chat_history']
-    bot_avatar = st.image("chatbot.png", width=50)
     for i, message in enumerate(st.session_state.chat_history):
         if i % 2 == 0:
             st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
         else:
-            bot_avatar = st.image("chatbot.png", width=50)
-            st.write(bot_avatar)
+            st.image("chatbot.png", width=50)
             st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
             # Copy text feature for each response
             copy_button_key = st.checkbox('Copy', key=f"copy_button_{i}", value=False)

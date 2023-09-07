@@ -41,6 +41,9 @@ html_code = '''
 
 bot_template = '''
 <div class="chat-message bot">
+    <div class="avatar">
+        <img src="https://github.com/marpulli246/llm_pdf_chatbot/blob/main/chatbot.png?raw=true" alt="chatbot.png" class="inline" style="width: 50px; height: 50px; margin-right: 10px;">
+    </div>    
     <div class="message">{{MSG}}</div> 
 </div>
 '''

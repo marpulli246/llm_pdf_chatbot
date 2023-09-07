@@ -96,6 +96,7 @@ def main():
     # Upload PDF and read it
     pdf_file = st.sidebar.file_uploader("Upload your PDF file.", type=['pdf'])
 
+    st.sidebar.write("PDF Pre-Process")
     if st.sidebar.button("OK"):
         with st.spinner("Processing your PDFs..."):
 

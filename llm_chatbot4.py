@@ -51,8 +51,8 @@ def get_conversation_chain(vector_store):
 def handle_user_input(question):
     response = st.session_state.conversation({'question':question})
     st.session_state.chat_history = response['chat_history']
-    if st.session_state['generated']:
-    # Reverse iteration through the list TRY THIS
+    #if st.session_state['generated']: ##TRY THIS
+    # Reverse iteration through the list 
     #for i in range(len(st.session_state['generated'])-1, -1, -1):
         # message from streamlit_chat
     #    message(st.session_state['past'][::-1][i], is_user=True, key=str(i) + '_user')

@@ -59,8 +59,7 @@ def handle_user_input(question):
             #st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
             st.markdown(
                 f'<div style="display: flex; align-items: center;">'
-                
-                f'<img src="C:\Users\marpulli\Downloads\chatbot.png" class="inline" style="width: 50px; height: 50px; margin-right: 10px;">'
+                f'<img src="/images/chatbot.png" alt="bot" class="inline" style="width: 50px; height: 50px; margin-right: 10px;">'
                 f'<div>{bot_template.replace("{{MSG}}", message.content)}</div>'
                 f'</div>',
                 unsafe_allow_html=True

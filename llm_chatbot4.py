@@ -59,18 +59,18 @@ def handle_user_input(question):
     #    message(st.session_state['generated'][::-1][i], key=str(i))
     for i, message in enumerate(st.session_state.chat_history):
         if i % 2 == 0:
-            #st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
-            st.write(message.content, unsafe_allow_html=True)
+            st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
+            #st.write(message.content, unsafe_allow_html=True)
         else:
             #st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
-            st.write(message.content, unsafe_allow_html=True)
-            #st.markdown(
-            #    f'<div style="display: flex; align-items: center;">'
-            #    f'<img src="https://github.com/marpulli246/llm_pdf_chatbot/blob/main/chatbot.png?raw=true" alt="chatbot.png" class="inline" style="width: 50px; height: 50px; margin-right: 10px;">'
-            #    f'<div>{bot_template.replace("{{MSG}}", message.content)}</div>'
-            #    f'</div>',
-                #unsafe_allow_html=True
-            #)
+            #st.write(message.content, unsafe_allow_html=True)
+            st.markdown(
+                f'<div style="display: flex; align-items: center;">'
+                f'<img src="https://github.com/marpulli246/llm_pdf_chatbot/blob/main/chatbot.png?raw=true" alt="chatbot.png" class="inline" style="width: 50px; height: 50px; margin-right: 10px;">'
+                f'<div>{bot_template.replace("{{MSG}}", message.content)}</div>'
+                f'</div>',
+                unsafe_allow_html=True
+            )
             # Copy text feature for each response
             copy_button_key = st.checkbox('Copy', key=f"copy_button_{i}", value=False)
             if copy_button_key:
@@ -96,7 +96,7 @@ def main():
     # Upload PDF and read it
     pdf_file = st.sidebar.file_uploader("Upload your PDF file.", type=['pdf'])
 
-    if st.button("OK"):
+    if st.sidebar.button("OK"):
         with st.spinner("Processing your PDFs..."):
 
     #if pdf_file:

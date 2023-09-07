@@ -59,14 +59,16 @@ def handle_user_input(question):
     #    message(st.session_state['generated'][::-1][i], key=str(i))
     for i, message in enumerate(st.session_state.chat_history):
         if i % 2 == 0:
-            st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
+            #st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
+            st.write(message.content, unsafe_allow_html=True)
         else:
             #st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
-            st.markdown(
-                f'<div style="display: flex; align-items: center;">'
-                f'<img src="https://github.com/marpulli246/llm_pdf_chatbot/blob/main/chatbot.png?raw=true" alt="chatbot.png" class="inline" style="width: 50px; height: 50px; margin-right: 10px;">'
-                f'<div>{bot_template.replace("{{MSG}}", message.content)}</div>'
-                f'</div>',
+            st.write(message.content, unsafe_allow_html=True)
+            #st.markdown(
+            #    f'<div style="display: flex; align-items: center;">'
+            #    f'<img src="https://github.com/marpulli246/llm_pdf_chatbot/blob/main/chatbot.png?raw=true" alt="chatbot.png" class="inline" style="width: 50px; height: 50px; margin-right: 10px;">'
+            #    f'<div>{bot_template.replace("{{MSG}}", message.content)}</div>'
+            #    f'</div>',
                 unsafe_allow_html=True
             )
             # Copy text feature for each response
@@ -85,20 +87,24 @@ def main():
         st.session_state.conversation = None
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = None    
-         
-    # Upload PDF and read it
-    pdf_file = st.sidebar.file_uploader("Upload your PDF file.", type=['pdf'])
-    if pdf_file:
-        context = read_pdf(pdf_file)
-        st.sidebar.write("PDF successfully uploaded and read.")
-        text_chunks = get_chunk_text(context)
-        vector_store = get_vector_store(text_chunks)
-        st.session_state.conversation =  get_conversation_chain(vector_store)
 
     #question = st.text_input("Ask anything to your PDF: ")
     question = st.text_input("Ask anything", html_code)
     if question:
         handle_user_input(question)
+        
+    # Upload PDF and read it
+    pdf_file = st.sidebar.file_uploader("Upload your PDF file.", type=['pdf'])
+
+    if st.button("OK"):
+        with st.spinner("Processing your PDFs..."):
+
+    #if pdf_file:
+            context = read_pdf(pdf_file)
+            st.sidebar.write("PDF successfully uploaded and read.")
+            text_chunks = get_chunk_text(context)
+            vector_store = get_vector_store(text_chunks)
+            st.session_state.conversation =  get_conversation_chain(vector_store)
         
 if __name__ == "__main__":
     main()

@@ -62,15 +62,15 @@ def handle_user_input(question):
             st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
             #st.write(message.content, unsafe_allow_html=True)
         else:
-            #st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
+            st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
             #st.write(message.content, unsafe_allow_html=True)
-            st.markdown(
-                f'<div style="display: flex; align-items: center;">'
-                f'<img src="https://github.com/marpulli246/llm_pdf_chatbot/blob/main/chatbot.png?raw=true" alt="chatbot.png" class="inline" style="width: 50px; height: 50px; margin-right: 10px;">'
-                f'<div>{bot_template.replace("{{MSG}}", message.content)}</div>'
-                f'</div>',
-                unsafe_allow_html=True
-            )
+            #st.markdown(
+            #    f'<div style="display: flex; align-items: center;">'
+            #    f'<img src="https://github.com/marpulli246/llm_pdf_chatbot/blob/main/chatbot.png?raw=true" alt="chatbot.png" class="inline" style="width: 50px; height: 50px; margin-right: 10px;">'
+            #    f'<div>{bot_template.replace("{{MSG}}", message.content)}</div>'
+            #    f'</div>',
+            #    unsafe_allow_html=True
+            #)
             # Copy text feature for each response
             copy_button_key = st.checkbox('Copy', key=f"copy_button_{i}", value=False)
             if copy_button_key:

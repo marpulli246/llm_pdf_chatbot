@@ -25,6 +25,20 @@ css = '''
 }
 '''
 
+html_code = """
+<style>
+  .fixed-text-input {
+    position: fixed;
+    top: 10px; /* Adjust top position as needed */
+    left: 10px; /* Adjust left position as needed */
+    z-index: 1000; /* Ensure it's above other content */
+  }
+</style>
+<div class="fixed-text-input">
+  <input type="text" placeholder="Enter text">
+</div>
+"""
+
 bot_template = '''
 <div class="chat-message bot">
     <div class="message">{{MSG}}</div> 

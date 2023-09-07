@@ -5,7 +5,7 @@ pypdf
 faiss-cpu 
 PyPDF2
 pyperclip
-PyQt4
+gtk
 python-dotenv
 tiktoken
 htmlTemplate

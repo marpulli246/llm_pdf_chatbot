@@ -70,7 +70,7 @@ def handle_user_input(question):
             #    f'<div>{bot_template.replace("{{MSG}}", message.content)}</div>'
             #    f'</div>',
                 #unsafe_allow_html=True
-            )
+            #)
             # Copy text feature for each response
             copy_button_key = st.checkbox('Copy', key=f"copy_button_{i}", value=False)
             if copy_button_key:

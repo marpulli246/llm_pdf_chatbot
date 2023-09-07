@@ -61,7 +61,6 @@ def handle_user_input(question):
         if i % 2 == 0:
             st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
         else:
-            #st.image("chatbot.png", width=50)
             #st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
             st.markdown(
                 f'<div style="display: flex; align-items: center;">'
@@ -87,7 +86,7 @@ def main():
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = None    
          
-    # Upload PDF
+    # Upload PDF and read it
     pdf_file = st.sidebar.file_uploader("Upload your PDF file.", type=['pdf'])
     if pdf_file:
         context = read_pdf(pdf_file)

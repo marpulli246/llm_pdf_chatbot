@@ -88,8 +88,8 @@ def main():
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = None    
 
-    #question = st.text_input("Ask anything to your PDF: ")
-    question = st.text_input("Ask anything", html_code)
+    question = st.text_input("Ask anything to your PDF: ")
+    #question = st.text_input("Ask anything", html_code)
     if question:
         handle_user_input(question)
         

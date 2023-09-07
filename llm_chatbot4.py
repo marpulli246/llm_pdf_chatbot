@@ -11,7 +11,7 @@ from langchain.vectorstores import FAISS
 from langchain.chains.conversation.memory import ConversationBufferMemory
 from langchain.chains import RetrievalQA, ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
-from htmlTemplates import bot_template, user_template, css
+from htmlTemplates import bot_template, user_template, html_code, css
 
 # Read PDF and return text
 def read_pdf(file):

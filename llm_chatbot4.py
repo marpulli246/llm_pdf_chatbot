@@ -51,6 +51,12 @@ def get_conversation_chain(vector_store):
 def handle_user_input(question):
     response = st.session_state.conversation({'question':question})
     st.session_state.chat_history = response['chat_history']
+    if st.session_state['generated']:
+    # Reverse iteration through the list TRY THIS
+    #for i in range(len(st.session_state['generated'])-1, -1, -1):
+        # message from streamlit_chat
+    #    message(st.session_state['past'][::-1][i], is_user=True, key=str(i) + '_user')
+    #    message(st.session_state['generated'][::-1][i], key=str(i))
     for i, message in enumerate(st.session_state.chat_history):
         if i % 2 == 0:
             st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
@@ -91,7 +97,7 @@ def main():
         st.session_state.conversation =  get_conversation_chain(vector_store)
 
     #question = st.text_input("Ask anything to your PDF: ")
-    question = st.text_input(html_code, unsafe_allow_html=True)
+    question = st.text_input("Ask anything", html_code)
     if question:
         handle_user_input(question)
         

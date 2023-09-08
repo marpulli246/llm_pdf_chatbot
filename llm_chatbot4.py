@@ -51,7 +51,7 @@ def get_conversation_chain(vector_store):
 def handle_user_input(question):
     response = st.session_state.conversation({'question':question})
     st.session_state.chat_history = response['chat_history']
-    message = st.session_state.chat_history[0]
+    message = st.session_state.chat_history[1]
     st.write(message.content)
     #Display the chat history
     #chat_length = len(st.session_state.chat_history)

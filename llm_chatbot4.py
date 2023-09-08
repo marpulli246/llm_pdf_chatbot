@@ -59,13 +59,13 @@ def handle_user_input(question):
     #    message(st.session_state['generated'][::-1][i], key=str(i))
     #for i, message in enumerate(st.session_state.chat_history):
     reversed_chat_history = reversed(st.session_state.chat_history)
-
+    st.write(reversed_chat_history, unsafe_allow_html=True)
    # Display the chat history
-    for message in reversed_chat_history:
+    #for message in reversed_chat_history:
         #chat_html = generate_chat_html(message)
         #role = message.role
         #if role == 'user':
-        st.write(message, unsafe_allow_html=True)
+        #st.write(message, unsafe_allow_html=True)
         #else:
            #st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
     

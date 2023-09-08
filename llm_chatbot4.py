@@ -74,11 +74,11 @@ def handle_user_input(question):
             #    unsafe_allow_html=True
             #)
             # Copy text feature for each response
-            copy_button_key = st.checkbox('Copy', key=f"copy_button_{i}", value=False)
-            if copy_button_key:
-                response_to_copy = message.content
-                pyperclip.copy(response_to_copy)
-                st.write("Response copied to clipboard!")
+        copy_button_key = st.checkbox('Copy', key=f"copy_button_{i}", value=False)
+        if copy_button_key:
+            response_to_copy = message.content
+            pyperclip.copy(response_to_copy)
+            st.write("Response copied to clipboard!")
             
 # Streamlit Frontend
 def main():

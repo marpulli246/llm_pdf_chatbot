@@ -75,10 +75,9 @@ def handle_user_input(question):
        st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True) 
        message = st.session_state.chat_history[index+1]        
        st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
-       if st.button("Copy to Clipboard"):
-         st.code(message.content, language='python')
-       #copy_button_key = st.checkbox('Copy', key=f"copy_button_{i}", value=False)
-       #if copy_button_key:
+       copy_button_key = st.checkbox('Copy', key=f"copy_button_{i}", value=False)
+       if copy_button_key:
+           st.code(message.content, language='python')
        #     response_to_copy = message.content
        #     pyperclip.copy(response_to_copy)
        #     st.write("Response copied to clipboard!")

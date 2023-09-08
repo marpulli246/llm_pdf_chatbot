@@ -102,6 +102,7 @@ def main():
 
     st.sidebar.write("PDF Pre-Process")
     if st.sidebar.button("OK"):
+        st.session_state.conversation = None
         st.session_state.chat_history = None
         with st.spinner("Processing the PDFs..."):
 

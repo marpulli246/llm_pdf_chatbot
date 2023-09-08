@@ -100,7 +100,7 @@ def main():
 
     st.sidebar.write("PDF Pre-Process")
     if st.sidebar.button("OK"):
-        with st.sidebar.spinner("Processing the PDFs..."):
+        with st.spinner("Processing the PDFs..."):
 
     #if pdf_file:
             context = read_pdf(pdf_file)

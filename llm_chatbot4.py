@@ -52,7 +52,7 @@ def handle_user_input(question):
     response = st.session_state.conversation({'question':question})
     st.session_state.chat_history = response['chat_history']
     message = st.session_state.chat_history[1]
-    st.write(message.content)
+    st.write(user_template.replace("{{MSG}}", message.content)
     #Display the chat history
     #chat_length = len(st.session_state.chat_history)
     #for i in range(chat_length/2):

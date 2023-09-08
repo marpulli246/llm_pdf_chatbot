@@ -59,7 +59,7 @@ def handle_user_input(question):
     #    message(st.session_state['generated'][::-1][i], key=str(i))
     #for i, message in enumerate(st.session_state.chat_history):
     reversed_chat_history = reversed(st.session_state.chat_history)
-    st.write(len(reversed_chat_history, unsafe_allow_html=True)
+    st.write(len(reversed_chat_history), unsafe_allow_html=True)
     st.write(reversed_chat_history[3], unsafe_allow_html=True)
     st.write(reversed_chat_history[4], unsafe_allow_html=True)
     st.write(reversed_chat_history, unsafe_allow_html=True)

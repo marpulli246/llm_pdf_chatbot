@@ -63,7 +63,7 @@ def handle_user_input(question):
    # Display the chat history
     for message in reversed_chat_history:
         #chat_html = generate_chat_html(message)
-        st.write(message, unsafe_allow_html=True)
+        st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
     
    # for i, message in enumerate(reversed_chat_history): 
        # if i % 2 == 0:

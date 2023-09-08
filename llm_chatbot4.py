@@ -4,6 +4,7 @@ import json
 import PyPDF2
 import pyperclip
 from dotenv import load_dotenv
+import clipboard
 
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import OpenAIEmbeddings

@@ -54,7 +54,7 @@ def handle_user_input(question):
     #for i, message in enumerate(st.session_state.chat_history):
     #reversed_chat_history = reversed(st.session_state.chat_history)
     #st.write(len(reversed_chat_history), unsafe_allow_html=True)
-    st.write(st.session_state.chat_history[3].content, unsafe_allow_html=True)
+    st.write(st.session_state.chat_history[0].content, unsafe_allow_html=True)
     #st.write(reversed_chat_history[4], unsafe_allow_html=True)
     #st.write(reversed_chat_history, unsafe_allow_html=True)
     #Display the chat history

@@ -50,6 +50,21 @@ def get_conversation_chain(vector_store):
     )
     return conversation_chain             
 
+st.components.v1.html("""
+    <button id="copy-button">Copy to Clipboard</button>
+    <textarea id="copy-text" style="display:none;"></textarea>
+    <script>
+        var button = document.getElementById("copy-button");
+        var textArea = document.getElementById("copy-text");
+        
+        button.addEventListener("click", function() {
+            textArea.select();
+            document.execCommand("copy");
+            alert("Copied to clipboard!");
+        });
+    </script>
+""")
+
 def handle_user_input(question):
     response = st.session_state.conversation({'question':question})
     st.session_state.chat_history = response['chat_history']
@@ -60,11 +75,13 @@ def handle_user_input(question):
        st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True) 
        message = st.session_state.chat_history[index+1]        
        st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
-       copy_button_key = st.checkbox('Copy', key=f"copy_button_{i}", value=False)
-       if copy_button_key:
-            response_to_copy = message.content
-            pyperclip.copy(response_to_copy)
-            st.write("Response copied to clipboard!")
+       if st.button("Copy to Clipboard"):
+         st.components.v1.html(f'<textarea id="copy-text" style="display:none;">{message.content}</textarea>', height=0)
+       #copy_button_key = st.checkbox('Copy', key=f"copy_button_{i}", value=False)
+       #if copy_button_key:
+       #     response_to_copy = message.content
+       #     pyperclip.copy(response_to_copy)
+       #     st.write("Response copied to clipboard!")
            
            
 # Streamlit Frontend

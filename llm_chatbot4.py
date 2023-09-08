@@ -51,23 +51,17 @@ def get_conversation_chain(vector_store):
 def handle_user_input(question):
     response = st.session_state.conversation({'question':question})
     st.session_state.chat_history = response['chat_history']
-    #if st.session_state['generated']: ##TRY THIS
-    # Reverse iteration through the list 
-    #for i in range(len(st.session_state['generated'])-1, -1, -1):
-        # message from streamlit_chat
-    #    message(st.session_state['past'][::-1][i], is_user=True, key=str(i) + '_user')
-    #    message(st.session_state['generated'][::-1][i], key=str(i))
     #for i, message in enumerate(st.session_state.chat_history):
     #reversed_chat_history = reversed(st.session_state.chat_history)
     #st.write(len(reversed_chat_history), unsafe_allow_html=True)
-    #st.write(reversed_chat_history[3], unsafe_allow_html=True)
+    st.write(st.session_state.chat_history[3].content, unsafe_allow_html=True)
     #st.write(reversed_chat_history[4], unsafe_allow_html=True)
     #st.write(reversed_chat_history, unsafe_allow_html=True)
     #Display the chat history
-    chat_length = len(st.session_state.chat_history)
-    for i in range(chat_length/2):
-        st.write(user_template.replace("{{MSG}}", st.session_state.chat_history[chat_length-(i*2+2)], unsafe_allow_html=True)
-        st.write(bot_template.replace("{{MSG}}", st.session_state.chat_history[chat_length-(i*2+1)], unsafe_allow_html=True)
+    #chat_length = len(st.session_state.chat_history)
+    #for i in range(chat_length/2):
+        #st.write(user_template.replace("{{MSG}}", st.session_state.chat_history[chat_length-(i*2+2)], unsafe_allow_html=True)
+        #st.write(bot_template.replace("{{MSG}}", st.session_state.chat_history[chat_length-(i*2+1)], unsafe_allow_html=True)
     
    # for i, message in enumerate(reversed_chat_history): 
        # if i % 2 == 0:

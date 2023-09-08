@@ -60,7 +60,7 @@ def handle_user_input(question):
        message = st.session_state.chat_history[index]
        st.write(message, unsafe_allow_html=True)
        st.write(message.content, unsafe_allow_html=True)
-       st.write(bot_template.replace("{{MSG}}", message.content) 
+       st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True) 
        # message = st.session_state.chat_history[index+1]        
        # st.write(bot_template.replace("{{MSG}}", message.content, unsafe_allow_html=True)
     #for i, message in enumerate(st.session_state.chat_history): 

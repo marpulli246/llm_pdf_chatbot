@@ -60,11 +60,11 @@ def handle_user_input(question):
     #for i, message in enumerate(st.session_state.chat_history):
     reversed_chat_history = reversed(st.session_state.chat_history)
     for i, message in enumerate(reversed_chat_history): 
-        if i % 2 == 1:
-            st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
+        #if i % 2 == 1:
+        st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
             #st.write(message.content, unsafe_allow_html=True)
-        else:
-            st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
+        #else:
+        st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
             #st.write(message.content, unsafe_allow_html=True)
             #st.markdown(
             #    f'<div style="display: flex; align-items: center;">'

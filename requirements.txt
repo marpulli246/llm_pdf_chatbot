@@ -8,3 +8,4 @@ pyperclip
 python-dotenv
 tiktoken
 htmlTemplate
+clipboard

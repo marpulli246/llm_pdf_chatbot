@@ -58,7 +58,7 @@ def handle_user_input(question):
     for i in range(int(chat_length/2)):
        index = chat_length-(i*2+2)
        message = st.session_state.chat_history[index]
-       st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True) 
+       st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True) 
        message = st.session_state.chat_history[index+1]        
        st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
     #for i, message in enumerate(st.session_state.chat_history): 

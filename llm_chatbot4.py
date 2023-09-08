@@ -51,10 +51,7 @@ def get_conversation_chain(vector_store):
 def handle_user_input(question):
     response = st.session_state.conversation({'question':question})
     st.session_state.chat_history = response['chat_history']
-    #message = st.session_state.chat_history[1]
-    #st.write(user_template.replace("{{MSG}}", message.content)
     chat_length = len(st.session_state.chat_history)
-    #st.write(chat_length, unsafe_allow_html=True)
     for i in range(int(chat_length/2)):
        index = chat_length-(i*2+2)
        message = st.session_state.chat_history[index]
@@ -67,23 +64,7 @@ def handle_user_input(question):
             pyperclip.copy(response_to_copy)
             st.write("Response copied to clipboard!")
            
-    #for i, message in enumerate(st.session_state.chat_history): 
-       # if i % 2 == 0:
-            #st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
-            #st.write(message, unsafe_allow_html=True)
-        #else:
-        #st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
-            #st.write(message.content, unsafe_allow_html=True)
-            #st.markdown(
-            #    f'<div style="display: flex; align-items: center;">'
-            #    f'<img src="https://github.com/marpulli246/llm_pdf_chatbot/blob/main/chatbot.png?raw=true" alt="chatbot.png" class="inline" style="width: 50px; height: 50px; margin-right: 10px;">'
-            #    f'<div>{bot_template.replace("{{MSG}}", message.content)}</div>'
-            #    f'</div>',
-            #    unsafe_allow_html=True
-            #)
-            # Copy text feature for each response
-
-            
+           
 # Streamlit Frontend
 def main():
     #load_dotenv()

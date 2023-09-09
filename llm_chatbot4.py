@@ -18,8 +18,8 @@ from htmlTemplates import bot_template, user_template, html_code, css
 def read_pdf(file):
     pdf_file = PyPDF2.PdfReader(file)
     text = ""
-    st.session_state.conversation = ""
-    st.session_state.chat_history = ""
+    st.session_state.conversation = None
+    st.session_state.chat_history = None
     for i in range(len(pdf_file.pages)):
         text += pdf_file.pages[i].extract_text()
     return text

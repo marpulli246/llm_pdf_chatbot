@@ -18,8 +18,8 @@ from htmlTemplates import bot_template, user_template, html_code, css
 def read_pdf(file):
     pdf_file = PyPDF2.PdfReader(file)
     text = ""
-    st.session_state.conversation = None
-    st.session_state.chat_history = None
+    st.session_state.conversation = ""
+    st.session_state.chat_history = ""
     for i in range(len(pdf_file.pages)):
         text += pdf_file.pages[i].extract_text()
     return text
@@ -80,10 +80,10 @@ def main():
     #load_dotenv()
     st.title("LLM Chatbot - Explore your PDF document data")
     st.write(css, unsafe_allow_html=True)
-    if "conversation" not in st.session_state:
-        st.session_state.conversation = None
-    if "chat_history" not in st.session_state:
-        st.session_state.chat_history = None
+    #if "conversation" not in st.session_state:
+    #    st.session_state.conversation = None
+    #if "chat_history" not in st.session_state:
+    #    st.session_state.chat_history = None
 
     question = st.text_input("Ask anything to your PDF: ")
     #question = st.text_input("Ask anything", html_code)

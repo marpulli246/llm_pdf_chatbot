@@ -64,9 +64,9 @@ def handle_user_input(question):
        message = st.session_state.chat_history[index]
        st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True) 
        message = st.session_state.chat_history[index+1]        
-       #st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
-       st.markdown(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True) 
-       st.button("📋", on_click=on_copy_click, args=(message.content,), key=i)
+       st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
+       #st.markdown(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True) 
+       #st.button("📋", on_click=on_copy_click, args=(message.content,), key=i)
        #copy_button_key = st.checkbox('Copy', key=f"copy_button_{i}", value=False)
        #if copy_button_key:
            

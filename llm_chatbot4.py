@@ -89,6 +89,7 @@ def main():
     #question = st.text_input("Ask anything", html_code)
     if question:
         handle_user_input(question)
+        question = ""
         
     # Upload PDF and read it
     pdf_file = st.sidebar.file_uploader("Upload your PDF file.", type=['pdf'])

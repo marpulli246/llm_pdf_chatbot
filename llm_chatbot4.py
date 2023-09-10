@@ -85,11 +85,12 @@ def main():
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = ""
 
+    unique_input_key = "question input"
     question = st.text_input("Ask anything to your PDF: ", key="unique_input_key")
     #question = st.text_input("Ask anything", html_code)
     if question:
         handle_user_input(question)
-        key = ""
+        unique_input_key = ""
         
     # Upload PDF and read it
     pdf_file = st.sidebar.file_uploader("Upload your PDF file.", type=['pdf'])

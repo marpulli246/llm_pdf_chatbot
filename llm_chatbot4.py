@@ -86,7 +86,7 @@ def main():
         st.session_state.chat_history = ""
 
     unique_input_key = "question input"
-    question = st.text_input("Ask anything to your PDF: ", key="unique_input_key")
+    question = st.text_input("Ask anything to your PDF: ", key="unique_input_key", accept_multiple_files=True)
     #question = st.text_input("Ask anything", html_code)
     if question:
         handle_user_input(question)

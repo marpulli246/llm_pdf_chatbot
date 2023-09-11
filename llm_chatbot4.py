@@ -15,13 +15,14 @@ from langchain.chat_models import ChatOpenAI
 from htmlTemplates import bot_template, user_template, html_code, css
 
 # Read PDF and return text
-def read_pdf(file):
-    pdf_file = PyPDF2.PdfReader(file)
+def read_pdf(files):
     text = ""
     st.session_state.conversation = ""
     st.session_state.chat_history = ""
-    for i in range(len(pdf_file.pages)):
-        text += pdf_file.pages[i].extract_text()
+    for file in files:
+        pdf_file = PyPDF2.PdfReader(file)
+        for i in range(len(pdf_file.pages)):
+            text += pdf_file.pages[i].extract_text()
     return text
 
 #Splitting the text
